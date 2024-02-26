@@ -57,5 +57,7 @@ ARG RELEASE_NAME=electric
 COPY --from=builder /app/_build/prod/rel/${RELEASE_NAME} ./
 RUN mv /app/bin/${RELEASE_NAME} /app/bin/entrypoint
 
+EXPOSE 5133 5433 65432
+
 ENTRYPOINT ["/app/bin/entrypoint"]
 CMD ["start"]
